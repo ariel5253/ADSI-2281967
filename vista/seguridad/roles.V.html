@@ -9,6 +9,7 @@
     <!-- Libreria jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     
+    <script src="../../js/seguridad/roles.js"></script>
 </head>
 
 <body>
@@ -43,12 +44,9 @@
                     </tr> 
                     <tr>
                         <td colspan="2">
-                            <input type="button" value="Adicionar" id="btnAdicionar" name="btnAdicionar" onclic
-                                class="btn btn-success">
-                            <input type="button" value="Modificar" id="btnModificar" name="btnModificar"
-                                class="btn btn-success">
-                            <input type="button" value="Eliminar" id="btnEliminar" name="btnEliminar"
-                                class="btn btn-success">
+                            <input type="button" value="Adicionar" id="btnAdicionar" name="btnAdicionar" class="btn btn-success" onclick="Enviar('Registrar',null)">
+                            <input type="button" value="Modificar" id="btnModificar" name="btnModificar" class="btn btn-success">
+                            <input type="button" value="Eliminar" id="btnEliminar" name="btnEliminar"  class="btn btn-success">
                         </td>
                     </tr>
                 </tbody>

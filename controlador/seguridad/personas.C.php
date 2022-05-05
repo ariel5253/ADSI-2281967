@@ -13,16 +13,17 @@
         { 
             case 'Registrar':
                 $personas = new Personas();
-                $personas->setTipoDocumento($_POST['cmbTipoDocumento']);
-                $personas->setDocumento($_POST['documento']);
-                $personas->setPrimerNombre($_POST['primerNombre']);
-                $personas->setSegundoNombre($_POST['segundoNombre']);
-                $personas->setPrimerApellido($_POST['primerApellido']);
-                $personas->setSegundoApellido($_POST['segundoApellido']);
-                $personas->setCelular($_POST['celular']);
-                $personas->setCorreo($_POST['correo']);
-                $personas->setDireccion($_POST['direccion']);
-                $personas->Registrar();
+                // $personas->setTipoDocumento($_POST['cmbTipoDocumento']);
+                // $personas->setDocumento($_POST['documento']);
+                // $personas->setPrimerNombre($_POST['primerNombre']);
+                // $personas->setSegundoNombre($_POST['segundoNombre']);
+                // $personas->setPrimerApellido($_POST['primerApellido']);
+                // $personas->setSegundoApellido($_POST['segundoApellido']);
+                // $personas->setCelular($_POST['celular']);
+                // $personas->setCorreo($_POST['correo']);
+                // $personas->setDireccion($_POST['direccion']);
+                // $personas->Registrar();
+                $personas->Prueba();
 
             break;
             case 'Modificar':

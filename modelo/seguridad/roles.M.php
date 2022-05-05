@@ -1,5 +1,6 @@
 <?php
-    class Usuarios
+    require '../../entorno/conexion.php';
+    class Roles
     {
         /*
         Atrinutos de la clase       
@@ -15,8 +16,8 @@
         private $idUsuarioModificacion=null;
 
         //Conexion a la base de datos
-        public function __construct($con){
-            $this->con = $con;
+        public function __construct(){
+            $this->conn = new Conexion();
         }
     
         //set id
@@ -57,7 +58,27 @@
         //Crear Registros
         public function Registrar()
         {   
-            echo 'Aqui va la sentencia sql de adicionar con los datos ';
+            $sql = "
+            INSERT INTO roles (
+                    descripcion
+                    ,estado
+                    ,fecha_creacion
+                    ,fecha_modificacion
+                    ,id_usuario_creacion
+                    ,id_usuario_modificacion)
+                VALUES (
+                    '$this->descripcion' 
+                    ,$this->estado
+                    ,NOW()
+                    ,NOW()
+                    ,2
+                    ,2                            
+                );
+                    
+            ";
+
+            $this->conn->Preparar($sql);    
+            $this->conn->Ejecutar();
         }
 
         //Modificar Registros

@@ -1,4 +1,5 @@
 <?php
+    require '../../entorno/conexion.php';
     class Personas
     {
         /*
@@ -23,8 +24,8 @@
         private $idUsuarioModificacion=null;
 
         //Conexion a la base de datos
-        public function __construct($con){
-            $this->con = $con;
+        public function __construct(){
+            $this->conn = new Conexion();
         }
     
         //set id

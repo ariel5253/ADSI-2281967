@@ -32,9 +32,7 @@ CREATE TABLE IF NOT EXISTS `db_adsi_67`.`personas` (
   `fecha_modificacion` TIMESTAMP NULL,
   `id_usuario_creacion` INT NOT NULL,
   `id_usuario_modificacion` INT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE INDEX `numero_documento_UNIQUE` (`numero_documento` ASC) VISIBLE)
-ENGINE = InnoDB;
+  PRIMARY KEY (`id`));
 
 
 -- -----------------------------------------------------
@@ -50,15 +48,13 @@ CREATE TABLE IF NOT EXISTS `db_adsi_67`.`usuario` (
   `id_usuario_creacion` INT NOT NULL,
   `id_usuario_modificacion` INT NULL,
   `personas_id` INT NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE INDEX `usuario_UNIQUE` (`usuario` ASC) VISIBLE,
-  
+  PRIMARY KEY (`id`),  
   CONSTRAINT `fk_usuario_personas`
     FOREIGN KEY (`personas_id`)
     REFERENCES `db_adsi_67`.`personas` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+ENGINE = INNODB;
 
 
 -- -----------------------------------------------------
@@ -73,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `db_adsi_67`.`roles` (
   `id_usuario_creacion` INT NOT NULL,
   `id_usuario_modificacion` INT NULL,
   PRIMARY KEY (`id`))
-ENGINE = InnoDB;
+ENGINE = INNODB;
 
 
 -- -----------------------------------------------------
@@ -88,8 +84,7 @@ CREATE TABLE IF NOT EXISTS `db_adsi_67`.`roles_usuarios` (
   `id_usuario_modificacion` INT NULL,
   `usuario_id` INT NOT NULL,
   `roles_id` INT NOT NULL,
-  PRIMARY KEY (`id`),
-  
+  PRIMARY KEY (`id`),  
   CONSTRAINT `fk_roles_usuarios_usuario1`
     FOREIGN KEY (`usuario_id`)
     REFERENCES `db_adsi_67`.`usuario` (`id`)
@@ -100,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `db_adsi_67`.`roles_usuarios` (
     REFERENCES `db_adsi_67`.`roles` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+ENGINE = INNODB;
 
 
 -- -----------------------------------------------------
@@ -117,7 +112,7 @@ CREATE TABLE IF NOT EXISTS `db_adsi_67`.`formularios` (
   `id_usuario_creacion` INT NOT NULL,
   `id_usuario_modificacion` INT NULL,
   PRIMARY KEY (`id`))
-ENGINE = InnoDB;
+ENGINE = INNODB;
 
 
 -- -----------------------------------------------------
@@ -144,7 +139,7 @@ CREATE TABLE IF NOT EXISTS `db_adsi_67`.`formularios_roles` (
     REFERENCES `db_adsi_67`.`formularios` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+ENGINE = INNODB;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

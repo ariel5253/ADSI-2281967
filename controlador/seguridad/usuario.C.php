@@ -35,7 +35,8 @@
             break;
             case 'Consultar':
                 $usuarios = new Usuarios();
-                $usuarios->setId($_POST['id']);                 
+                $usuarios->setId($_POST['id']);     
+                $usuarios->setUsuario($_POST['usuario']);            
                 $usuarios->Consultar();
             break;           
         }

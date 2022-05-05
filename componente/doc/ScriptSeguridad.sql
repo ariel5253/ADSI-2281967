@@ -18,7 +18,7 @@ USE `db_adsi_67` ;
 -- Table `db_adsi_67`.`personas`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `db_adsi_67`.`personas` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL auto_increment,
   `tipo_documento` ENUM('CC', 'TI', 'DNI', 'CE') NOT NULL,
   `numero_documento` INT NOT NULL,
   `primer_nombre` VARCHAR(45) NOT NULL,
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `db_adsi_67`.`personas` (
 -- Table `db_adsi_67`.`usuario`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `db_adsi_67`.`usuario` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL auto_increment,
   `usuario` VARCHAR(50) NOT NULL,
   `contrasenia` INT NOT NULL,
   `estado` BIT NOT NULL,
@@ -61,7 +61,7 @@ ENGINE = INNODB;
 -- Table `db_adsi_67`.`roles`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `db_adsi_67`.`roles` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL auto_increment,
   `descripcion` VARCHAR(50) NOT NULL,
   `estado` BIT NOT NULL,
   `fecha_creacion` TIMESTAMP NOT NULL,
@@ -76,7 +76,7 @@ ENGINE = INNODB;
 -- Table `db_adsi_67`.`roles_usuarios`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `db_adsi_67`.`roles_usuarios` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL auto_increment,
   `estado` BIT NOT NULL,
   `fecha_creacion` TIMESTAMP NOT NULL,
   `fecha_modificacion` TIMESTAMP NULL,
@@ -102,7 +102,7 @@ ENGINE = INNODB;
 -- Table `db_adsi_67`.`formularios`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `db_adsi_67`.`formularios` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL auto_increment,
   `etiqueta` VARCHAR(50) NOT NULL,
   `modulo` VARCHAR(50) NOT NULL,
   `ruta` VARCHAR(200) NOT NULL,
@@ -119,7 +119,7 @@ ENGINE = INNODB;
 -- Table `db_adsi_67`.`formularios_roles`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `db_adsi_67`.`formularios_roles` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL auto_increment,
   `estado` BIT NOT NULL,
   `fecha_creacion` TIMESTAMP NOT NULL,
   `fecha_modificacion` TIMESTAMP NULL,
