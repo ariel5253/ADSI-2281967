@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Dashboard Apoyo</title>
+
+
+    <!-- libreria web -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Custom styles for this template -->
+    <link href="../componente/css/dashboard/dashboard.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+</head>
+</head>
+
+<body>
+    <header class="navbar navbar-dark sticky-top bg-success flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Universidad SENA</a>
+
+        <div class="navbar-nav">
+            <div class="nav-item text-nowrap">
+                <a class="nav-link px-3" href="../index.html">Cerrar Sesión</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container-fluid">
+        
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+            <h4 class="">
+                <span>SEGURIDAD</span>
+            </h4>
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">--SELECCIONAR--
+                    <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a href="seguridad/personas.V.html" target="iframeContenido">Registro de Personas</a></li>
+                    <li><a href="seguridad/usuarios.V.html" target="iframeContenido">Registro de Usuarios</a></li>
+                    <li><a href="seguridad/roles.V.html" target="iframeContenido">Roles del Sistema</a></li>                        
+                    <li><a href="seguridad/usariosRoles.V.html" target="iframeContenido">Asociar Roles al Usuario</a></li>
+                    <li><a href="seguridad/formularios.V.html" target="iframeContenido">Registrar Formularios al Sistema</a></li>
+                    <li><a href="seguridad/formulariosRoles.V.html" target="iframeContenido"> Asociar formularios a los Roles</a></li>
+                </ul>
+            </div>
+
+            <h4 class="">
+                <span>UBICACIÓN</span>
+            </h4>
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">--SELECCIONAR--
+                    <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a href="ubicacion/continentes.V.html" target="iframeContenido">Registrar de Continentes</a></li>
+                    <li><a href="ubicacion/paises.V.html" target="iframeContenido">Registrar de Paises</a></li>
+                    <li><a href="ubicacion/departamentos.V.html" target="iframeContenido">Registrar de Departamentos</a></li>                        
+                    <li><a href="ubicacion/ciudades.V.html" target="iframeContenido">Registrar de Ciudades</a></li>
+                    <li><a href="ubicacion/zonas.V.html" target="iframeContenido">Registrar Zonas</a></li>                    
+                </ul>
+            </div>
+
+            <div class="position-sticky pt-3">
+                
+                <!-- <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../vista/seguridad/personas.V.html" target="iframeContenido">
+                            <span data-feather="file"></span>
+                            Registro de Personas
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../vista/seguridad/usuarios.V.html" target="iframeContenido">
+                            <span data-feather="file"></span>
+                            Registro de Usuarios
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../vista/seguridad/roles.V.html" target="iframeContenido">
+                            <span data-feather="file"></span>
+                            Roles del Sistema
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../vista/seguridad/usariosRoles.V.html" target="iframeContenido">
+                            <span data-feather="file"></span>
+                            Asociar Roles al Usuario
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../vista/seguridad/formularios.V.html" target="iframeContenido">
+                            <span data-feather="file"></span>
+                            Registrar Formularios al Sistema
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../vista/seguridad/formulariosRoles.V.html" target="iframeContenido">
+                            <span data-feather="file"></span>
+                            Asociar formularios a los Roles
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="video/videoPrueba.html" target="iframeContenido">
+                            <span data-feather="file"></span>
+                            Google
+                        </a>
+                    </li>
+                </ul> -->
+
+                <!-- <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                    <span>Ubicación</span>
+                </h6>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../vista/ubicacion/continentes.V.html" target="iframeContenido">
+                            <span data-feather="file"></span>
+                            Registrar Continentes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../vista/ubicacion/paises.V.html" target="iframeContenido">
+                            <span data-feather="file"></span>
+                            Registrar Paises
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../vista/ubicacion/departamentos.V.html" target="iframeContenido">
+                            <span data-feather="file"></span>
+                            Registrar Departamentos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../vista/ubicacion/ciudades.V.html" target="iframeContenido">
+                            <span data-feather="file"></span>
+                            Registrar Ciudades
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../vista/ubicacion/zonas.V.html" target="iframeContenido">
+                            <span data-feather="file"></span>
+                            Registrar Zonas
+                        </a>
+                    </li>
+                </ul> -->
+
+                <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                    <span>Ventas</span>
+                </h6>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../vista/ubicacion/continente.V.html" target="iframeContenido">
+                            <span data-feather="file"></span>
+                            Continente
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../vista/ubicacion/pais.V.html" target="iframeContenido">
+                            <span data-feather="file"></span>
+                            Pais
+                        </a>
+                    </li>
+                </ul>
+
+                <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                    <span>Bodega</span>
+                </h6>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="" target="iframeContenido">
+                            <span data-feather="file"></span>
+                            XXXXXX
+                        </a>
+                    </li>
+                </ul>
+
+                <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                    <span>Reportes</span>
+                </h6>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="" target="iframeContenido">
+                            <span data-feather="file"></span>
+                            XXXXXX
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+                id="divDashboard">
+                <h1 class="h2">Dashboard</h1>
+            </div>
+
+            <!-- <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas> -->
+            <div id="divCuerpoTrabajo"
+                class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <iframe id="iframeContenido" name="iframeContenido" width="100%" height="100%" title="">
+
+                </iframe>
+            </div>
+
+            <!-- Button trigger modal -->
+            <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Launch demo modal
+                </button> -->
+
+            <!-- Modal -->
+            <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <h2>Section title</h2>
+                <div class="table-responsive">
+
+                </div> -->
+        </main>
+    </div>
+    </div>
+
+</body>
+
+</html>

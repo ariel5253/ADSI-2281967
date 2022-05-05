@@ -1,0 +1,150 @@
+<html>
+
+<head>
+    <title>Gestionar Personas</title>
+    <!-- libreria web -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Libreria jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+</head>
+
+<body>
+    <form id="personas" name="personas" method="post" action="">
+        <div id="divEntradaDato">
+            <table id="tblEntradaDato" class="table table-hover">
+                <thead id="thEntradaDato">
+                    <tr>
+                        <td colspan="2" class="titulo">Gestionar personas</td>
+                    </tr>
+                </thead>
+                <tbody id="tbEntradaDatos">
+                    <tr>
+                        <td>
+                            Tipo documento
+                        </td>
+                        <td>
+                            <select id="cmbTipoDocumento" name="cmbTipoDocumento">
+                                <option value="tipoDocumento">CC</option>
+                                <option value="tipoDocumento">CE</option>
+                                <option value="tipoDocumento">TI</option>
+                                <option value="tipoDocumento">DNI</option>
+                                <option value="tipoDocumento">Otro</option>
+                            </select>    
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Documento
+                        </td>
+                        <td>
+                            <input type="hidden" name="id" id="id">
+                            <input type="text" value="" id="documento" name="documento" size="50">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Primer Nombre
+                        </td>
+                        <td>                          
+                            <input type="text" value="" id="primerNombre" name="primerNombre" size="50">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Segundo Nombre
+                        </td>
+                        <td>                          
+                            <input type="text" value="" id="segundoNombre" name="segundoNombre" size="50">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Primer Apellido
+                        </td>
+                        <td>                            
+                            <input type="text" value="" id="primerApellido" name="primerApellido" size="50">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Segundo Apellido
+                        </td>
+                        <td>                            
+                            <input type="text" value="" id="segundoApellido" name="segundoApellido" size="50">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Celular
+                        </td>
+                        <td>                           
+                            <input type="text" value="" id="celular" name="celular" size="20">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Correo
+                        </td>
+                        <td>                           
+                            <input type="text" value="" id="correo" name="correo" size="50">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Dirección
+                        </td>
+                        <td>                           
+                            <input type="text" value="" id="direccion" name="direccion" size="50">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Estado
+                        </td>
+                        <td>                          
+                            <select id="cmbEstado" name="cmbEstado">
+                                <option id="estado">Actvio</option>
+                                <option id="estado">Inactivo</option>
+                            </select>
+                        </td>
+                    </tr> 
+                    <tr>
+                        <td colspan="2">
+                            <input type="submit" value="Adicionar" id="btnAdicionar" name="btnAdicionar" onclic
+                                class="btn btn-success">
+                            <input type="submit" value="Modificar" id="btnModificar" name="btnModificar"
+                                class="btn btn-success">
+                            <input type="submit" value="Eliminar" id="btnEliminar" name="btnEliminar"
+                                class="btn btn-success">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <br>
+        <div id="divSalidaDato">
+            <table id="tblSalidaDato" class="table">
+                <thead id="thSalidaDato">
+                    <tr class="table-secondary">
+                        <td>ID</td>
+                        <td>DOCUMNETO</td>
+                        <td>PRIMER NOMBRE</td>
+                        <td>SEGUNDO NOMBRE</td>
+                        <td>PRIMER APELLIDO</td>
+                        <td>SEGUNDO APELLIDO</td>                        
+                        <td>CORREO</td>
+                        <td>DIRECCIÓN</td>
+                        <td>ESTADO</td>
+                    </tr>
+                </thead>
+                <tbody id="tbSalidaDatos">
+                    <!-- Aqui la consulta de los datos -->
+                </tbody>
+            </table>
+        </div>
+    </form>
+</body>
+</html>

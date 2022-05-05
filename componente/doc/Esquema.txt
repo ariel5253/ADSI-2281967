@@ -1,0 +1,124 @@
+(campos de auditoria)=>fecha_creacion, fecha_modificaicon, id_usuario_creacion, id_uisuario_modificacion
+
+seguridad
+	personas
+		id
+		tipo_documento
+		documento
+		primer_nombre
+		segundo_nombre
+		primero_apellido
+		segundo_apellido
+		celular
+		correo
+		direccion
+		estado
+		auditoria
+	usuarios
+		id
+		usuario
+		contrasenia
+		id_persona
+		auditoria
+	roles_usuarios
+		id
+		id_rol
+		id_usuario
+		auditoria
+	roles	
+		id
+		descripcion
+		auditoria
+	formularios_roles
+		id
+		id_rol
+		id_formulario
+		auditoria
+	formularios	
+		id
+		etiqueta
+		modulo
+		ruta
+		auditoria
+
+ubicacion
+	continentes
+		id
+		descripcion
+		auditoria
+	paises
+		id
+		descripcion
+		id_continente
+		auditoria
+
+	departamentos
+		id
+		descripcion
+		id_pais	
+		auditoria
+	ciudades
+		id
+		descripcion
+		id_pais
+	zonas
+		id
+		descripcion
+		id_ciudad
+		auditoria
+
+venta
+	clientes
+		id
+		fecha_nacimiento
+		id_persona	
+		auditoria
+	vendedores
+		id
+		codigo
+		id_zona
+		id_persona
+		auditoria
+	facturas
+		id
+		fecha
+		valor_pagar_bruto
+		valor_pagar_neto
+		iva
+		descuento
+		id_vendedor
+		id_cliente
+		auditoria
+	facturas_detalles	
+		id		
+		cantidad
+		valor_pagar_producto
+		id_bodega_producto
+		auditoria
+
+almacen 	
+	bodegas
+		id
+		descripcion
+		id_zona
+		auditoria
+	bodegas_productos
+		id
+		id_zona
+		id_producto
+		stock
+		fecha_fabricacion
+		fecha_vencimiento
+		valor_unitario_compra
+		valor_unitario_venta
+		auditoria
+	productos
+		id
+		label
+		descripcion
+		auditoria			
+
+Reportes
+	******
+
+
