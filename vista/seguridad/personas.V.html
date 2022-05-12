@@ -9,6 +9,7 @@
     <!-- Libreria jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     
+    <script src="../../js/seguridad/personas.js"></script>
 </head>
 
 <body>
@@ -26,12 +27,12 @@
                             Tipo documento
                         </td>
                         <td>
-                            <select id="cmbTipoDocumento" name="cmbTipoDocumento">
-                                <option value="tipoDocumento">CC</option>
-                                <option value="tipoDocumento">CE</option>
-                                <option value="tipoDocumento">TI</option>
-                                <option value="tipoDocumento">DNI</option>
-                                <option value="tipoDocumento">Otro</option>
+                            <select id="tipoDocumento" name="tipoDocumento">
+                                <option>CC</option>
+                                <option>CE</option>
+                                <option>TI</option>
+                                <option>DNI</option>
+                                <option>Otro</option>
                             </select>    
                         </td>
                     </tr>
@@ -105,20 +106,17 @@
                             Estado
                         </td>
                         <td>                          
-                            <select id="cmbEstado" name="cmbEstado">
-                                <option id="estado">Actvio</option>
-                                <option id="estado">Inactivo</option>
+                            <select id="estado" name="cmbEstado">
+                                <option>Activo</option>
+                                <option>Inactivo</option>
                             </select>
                         </td>
                     </tr> 
                     <tr>
                         <td colspan="2">
-                            <input type="submit" value="Adicionar" id="btnAdicionar" name="btnAdicionar" onclic
-                                class="btn btn-success">
-                            <input type="submit" value="Modificar" id="btnModificar" name="btnModificar"
-                                class="btn btn-success">
-                            <input type="submit" value="Eliminar" id="btnEliminar" name="btnEliminar"
-                                class="btn btn-success">
+                            <input type="button" value="Adicionar" id="btnAdicionar" name="btnAdicionar" class="btn btn-success" onclick="Enviar('Registrar',null)">
+                            <input type="button" value="Modificar" id="btnModificar" name="btnModificar" class="btn btn-success">
+                            <input type="button" value="Eliminar" id="btnEliminar" name="btnEliminar"  class="btn btn-success">
                         </td>
                     </tr>
                 </tbody>

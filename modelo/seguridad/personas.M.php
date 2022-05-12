@@ -5,8 +5,11 @@
         /*
         Atrinutos de la clase       
         */
+
+        // conexion
         public $conn=null;
 
+        // atributos de la entidad
         private $id=null;        
         private $tipoDocumento = null;
         private $documento=null;
@@ -17,6 +20,8 @@
         private $celular = null;
         private $correo = null;
         private $direccion = null;
+
+        // auditoria
         private $estado=null;
         private $fechaCreacion=null;
         private $fechaModifcicion=null;
@@ -28,6 +33,10 @@
             $this->conn = new Conexion();
         }
     
+        /*
+        Atributos de la entidad
+        */
+
         //set id
         public function setId($id){$this->id = $id;}
         //get id
@@ -78,6 +87,11 @@
         //get segundo direccion
         public function getDireccion(){return $this->direccion;}        
 
+
+        /*
+        Atributos de auditoria
+        */
+
         //set estado
         public function setEstado($estado){$this->estado = $estado;}
         //get estado
@@ -106,25 +120,83 @@
         //Crear Registros
         public function Registrar()
         {   
-            echo 'Aqui va la sentencia sql de adicionar con los datos ';
+            $sql = "
+                    INSERT INTO personas (
+                            tipo_documento
+                            ,documento
+                            ,primer_nombre
+                            ,segundo_nombre
+                            ,primer_apellido
+                            ,segundo_apellido
+                            ,celular
+                            ,correo
+                            ,direccion
+                            ,estado
+                            ,fecha_creacion
+                            ,fecha_modificacion
+                            ,id_usuario_creacion
+                            ,id_usuario_modificacion)
+                        VALUES (
+                            '$this->tipoDocumento'
+                            , $this->documento
+                            ,'$this->primerNombre'
+                            ,'$this->segundoNombre'
+                            ,'$this->primerApellido'
+                            ,'$this->segundoApellido'
+                            ,'$this->celular'
+                            ,'$this->correo'
+                            ,'$this->direccion'
+                            , $this->estado
+                            ,NOW()
+                            ,NOW()
+                            ,2
+                            ,2                            
+                        );
+                            
+                    ";           
+            $this->conn->Preparar($sql);    
+            $this->conn->Ejecutar();
         }
 
         //Modificar Registros
         public function Modificar()
         {
-            
+            $sql = "UPDATE personas 
+                    SET
+                        tipo_documento = '$this->tipoDocumento'
+                        ,documento =  $this->documento
+                        ,primer_nombre ='$this->primerNombre'
+                        ,segundo_nombre = '$this->segundoNombre'
+                        ,primer_apellido = '$this->primerApellido'
+                        ,segundo_apellido = '$this->segundoApellido'
+                        ,celular = '$this->celular'
+                        ,correo = '$this->correo'
+                        ,direccion = '$this->direccion'
+                        ,estado = $this->estado                        
+                        ,fecha_modificacion = NOW()                      
+                        ,id_usuario_modificacion = 2
+                    WHERE  id = $this->id;                           
+                    ";           
+            $this->conn->Preparar($sql);    
+            $this->conn->Ejecutar();
         }
 
         //Eliminar Registros
         public function Eliminar()
         {
-            
+            $sql = "DELETE FROM personas WHERE id = $this->id;                           
+                    ";           
+            $this->conn->Preparar($sql);    
+            $this->conn->Ejecutar();   
         }
 
         //Consultar Registros
         public function Consultar()
         {
-            
+            $sql = "SELECT  * FROM personas;                           
+            ";           
+            $this->conn->Preparar($sql);    
+            $this->conn->Ejecutar();
         }
 
         //WhereAnd
