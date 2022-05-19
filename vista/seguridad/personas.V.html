@@ -1,6 +1,10 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Gestionar Personas</title>
     <!-- libreria web -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -10,8 +14,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     
     <script src="../../js/seguridad/personas.js"></script>
-</head>
 
+</head>
 <body>
     <form id="personas" name="personas" method="post" action="">
         <div id="divEntradaDato">
@@ -28,6 +32,7 @@
                         </td>
                         <td>
                             <select id="tipoDocumento" name="tipoDocumento">
+                                <option>--Seleccionar--</option>
                                 <option>CC</option>
                                 <option>CE</option>
                                 <option>TI</option>
@@ -41,7 +46,7 @@
                             Documento
                         </td>
                         <td>
-                            <input type="hidden" name="id" id="id">
+                            <input type="hidden" name="id" id="id" value="">
                             <input type="text" value="" id="documento" name="documento" size="50">
                         </td>
                     </tr>
@@ -106,7 +111,8 @@
                             Estado
                         </td>
                         <td>                          
-                            <select id="estado" name="cmbEstado">
+                            <select id="estado" name="estado">
+                                <option>--Seleccionar--</option>
                                 <option>Activo</option>
                                 <option>Inactivo</option>
                             </select>
@@ -115,8 +121,9 @@
                     <tr>
                         <td colspan="2">
                             <input type="button" value="Adicionar" id="btnAdicionar" name="btnAdicionar" class="btn btn-success" onclick="Enviar('Registrar',null)">
-                            <input type="button" value="Modificar" id="btnModificar" name="btnModificar" class="btn btn-success">
-                            <input type="button" value="Eliminar" id="btnEliminar" name="btnEliminar"  class="btn btn-success">
+                            <input type="button" value="Modificar" id="btnModificar" name="btnModificar" class="btn btn-success" onclick="Enviar('Modificar',null)">
+                            <input type="button" value="Eliminar" id="btnEliminar" name="btnEliminar"  class="btn btn-success" onclick="Enviar('Eliminar',null)">
+                            <input type="button" value="Consultar" id="btnConsultar" name="btnConsultar"  class="btn btn-success" onclick="Enviar('Consultar',null)">
                         </td>
                     </tr>
                 </tbody>
@@ -128,7 +135,7 @@
                 <thead id="thSalidaDato">
                     <tr class="table-secondary">
                         <td>ID</td>
-                        <td>DOCUMNETO</td>
+                        <td>DOCUMENTO</td>
                         <td>PRIMER NOMBRE</td>
                         <td>SEGUNDO NOMBRE</td>
                         <td>PRIMER APELLIDO</td>
@@ -136,6 +143,8 @@
                         <td>CORREO</td>
                         <td>DIRECCIÓN</td>
                         <td>ESTADO</td>
+                        <td>EDITAR</td>
+                        <td>ELIMIANR</td>
                     </tr>
                 </thead>
                 <tbody id="tbSalidaDatos">

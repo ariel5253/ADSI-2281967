@@ -119,39 +119,40 @@
 
         //Crear Registros
         public function Registrar()
-        {   
-            $sql = "
-                    INSERT INTO personas (
-                            tipo_documento
-                            ,documento
-                            ,primer_nombre
-                            ,segundo_nombre
-                            ,primer_apellido
-                            ,segundo_apellido
-                            ,celular
-                            ,correo
-                            ,direccion
-                            ,estado
-                            ,fecha_creacion
-                            ,fecha_modificacion
-                            ,id_usuario_creacion
-                            ,id_usuario_modificacion)
-                        VALUES (
-                            '$this->tipoDocumento'
-                            , $this->documento
-                            ,'$this->primerNombre'
-                            ,'$this->segundoNombre'
-                            ,'$this->primerApellido'
-                            ,'$this->segundoApellido'
-                            ,'$this->celular'
-                            ,'$this->correo'
-                            ,'$this->direccion'
-                            , $this->estado
-                            ,NOW()
-                            ,NOW()
-                            ,2
-                            ,2                            
-                        );
+        {           
+           $sql = "
+                    INSERT INTO personas (                        
+                        tipo_documento
+                        ,documento
+                        ,primer_nombre
+                        ,segundo_nombre
+                        ,primer_apellido
+                        ,segundo_apellido
+                        ,celular
+                        ,correo
+                        ,direccion
+                        ,estado
+                        ,fecha_creacion
+                        ,fecha_modificacion
+                        ,id_usuario_creacion
+                        ,id_usuario_modificacion) 
+                    VALUES (                        
+                        '{$this->getTipoDocumento()}'
+                        ,'{$this->getDocumento()}'
+                        ,'{$this->getPrimerNombre()}'
+                        ,'{$this->getSegundoNombre()}'
+                        ,'{$this->getPrimerApellido()}'
+                        ,'{$this->getSegundoApellido()}'
+                        ,'{$this->getCelular()}'
+                        ,'{$this->getCorreo()}'
+                        ,'{$this->getDireccion()}'
+                        , {$this->getEstado()}
+                        , NOW()
+                        , NOW()
+                        ,2
+                        ,2
+                                                
+                    );
                             
                     ";           
             $this->conn->Preparar($sql);    
@@ -184,7 +185,7 @@
         //Eliminar Registros
         public function Eliminar()
         {
-            $sql = "DELETE FROM personas WHERE id = $this->id;                           
+            $sql = "DELETE FROM personas WHERE id = {$this->getId()};                           
                     ";           
             $this->conn->Preparar($sql);    
             $this->conn->Ejecutar();   
@@ -193,31 +194,42 @@
         //Consultar Registros
         public function Consultar()
         {
-            $sql = "SELECT  * FROM personas;                           
-            ";           
+            if($this->id != null)
+            {
+                $whereAnd = " WHERE id = ".$this->getId();
+            }else{
+                $whereAnd="";
+            }
+            
+
+            $sql = "SELECT  * FROM personas $whereAnd;";           
             $this->conn->Preparar($sql);    
             $this->conn->Ejecutar();
-        }
+        }      
 
         //WhereAnd
         public function WhereAnd()
         {            
-            return $whereAnd ="";
+            if($this->id != null)
+            {
+                $whereAnd = " WHERE id = ".$this->getId();
+            }
+            return $whereAnd = "";
         }
 
         //Destruye los atributos
         public function __destruct(){
             unset($this->conn);
             unset($this->id);
-            unset($this->tipoDocumento);
             unset($this->documento);
+            unset($this->setDocumento);
             unset($this->primerNombre);
             unset($this->segundoNombre);
             unset($this->primerApellido);
             unset($this->segundoApellido);
             unset($this->celular);
+            unset($this->direccion);
             unset($this->correo);
-            unset($this->telefono);
             unset($this->estado);
             unset($this->fechaCreacion);
             unset($this->fechaModificacion);

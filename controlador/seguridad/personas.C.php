@@ -71,15 +71,60 @@
             case 'Consultar':
                 try {
                     $personas = new Personas();
-                    $personas->setId($_POST['id']);                   
-                    $personas->Consultar();
+                    $personas->setId((intval($_POST['id']))==0? null:intval($_POST['id']));                   
+                    $personas->Consultar();                   
+
+                    $numeroRegistros = $personas->conn->ObtenerNumeroRegistros();
+                    $respuesta['cantidadRegistro']=$numeroRegistros;
+                    $respuesta['id']=$personas->getId();
+                    if($numeroRegistros==1)
+                    {
+                        if ($rowBuscar = $personas->conn->ObtenerObjeto()){
+                            $respuesta['id'] = $rowBuscar->id;
+                            $respuesta['tipoDocumento'] = $rowBuscar->tipo_documento;
+                            $respuesta['documento'] = $rowBuscar->documento;
+                            $respuesta['primerNombre'] = $rowBuscar->primer_nombre;
+                            $respuesta['segundoNombre'] = $rowBuscar->segundo_nombre;
+                            $respuesta['primerApellido'] = $rowBuscar->primer_apellido;
+                            $respuesta['segundoApellido'] = $rowBuscar->segundo_apellido;
+                            $respuesta['celular'] = $rowBuscar->celular;
+                            $respuesta['correo'] = $rowBuscar->correo;                           
+                            $respuesta['direccion'] = $rowBuscar->direccion;
+                            $respuesta['estado'] = ($rowBuscar->estado == 1 ? 'Activo':'Inactivo');
+                            $respuesta['eliminar'] = "<input type='button' name='eliminar' class='eliminar' value='Eliminar' onclick='Enviar(\"ELIMINAR\",".$rowBuscar->id.")'>";
+                        }
+                    }else{
+                        if(isset($personas)){
+                            $retorno="";
+                            foreach($personas->conn->ObtenerRegistros() AS $rowConsulta){
+                                $retorno .= "<tr>                                          
+                                            <td><label>".$rowConsulta[0]."</label></td>            
+                                            <td><label>".$rowConsulta[1]."</label></td>                                           
+                                            <td><label>".$rowConsulta[2]."</label></td>  
+                                            <td><label>".$rowConsulta[3]."</label></td> 
+                                            <td><label>".$rowConsulta[4]."</label></td>                                        
+                                            <td><label>".$rowConsulta[5]."</label></td>                                                                                               
+                                            <td><label>".$rowConsulta[6]."</label></td>
+                                            <td><label>".$rowConsulta[7]."</label></td>
+                                            <td><label>".($rowConsulta[8] == 1 ? 'Activo' : 'Inactivo')."</label></td>
+                                            <td><button type='button' onclick='Enviar(\"Consultar\",".$rowConsulta[0].")'>Editar</button></td>
+                                            <td><button type='button' onclick='Enviar(\"Eliminar\",".$rowConsulta[0].")'>Eliminar</button></td>
+                                        </tr>";
+                            }                                                             
+                            $respuesta['tablaRegistro']=$retorno;
+                        }else{                                         
+                            $respuesta['tablaRegistro']='No existen datos!!!';
+                        }
+
+                    }
+
                     $respuesta['respuesta']="La información se consultó correctamente";
                 } catch (Exception $e) {
                     $respuesta['respuesta']="No fué posible consultar la información.";
                 }
                 $respuesta['accion']=$_POST['accion'];
                 echo json_encode($respuesta);
-            break;
+            break;            
         }
     }
 

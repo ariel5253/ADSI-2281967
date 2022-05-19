@@ -1,5 +1,10 @@
 function Enviar(accion,id){
+
     
+    if(id==null && $('#id').val()!="")
+    {
+        id = $('#id').val();
+    }
     var parametros = {
         "id" : id,
         "tipoDocumento":$('#tipoDocumento').val(),
@@ -31,58 +36,42 @@ function Enviar(accion,id){
                 //Respueta adicionar
                 if(respuesta['accion']=='Registrar'){
                     alert(respuesta['respuesta']);
-                    Limpiar();                    
+                    Limpiar();   
+                    $("#btnConsultar").trigger("click");                 
                 }
-                
-                //Respuesta muchos registros
-                if(respuesta['accion']=='CONSULTAR' && respuesta['numeroRegistros']>1){
-                    $("#resultado").html(respuesta['tablaRegistro']);
-                    
-                    //Código para DataTable
 
-                    //Para inicializar datatable de la manera más simple
-
-                    $(document).ready(function() {    
-                        $('#tableDatos').DataTable({
-                        //para cambiar el lenguaje a español
-                            "language": {
-                                    "lengthMenu": "Mostrar _MENU_ registros",
-                                    "zeroRecords": "No se encontraron resultados",
-                                    "info": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-                                    "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
-                                    "infoFiltered": "(filtrado de un total de _MAX_ registros)",
-                                    "sSearch": "Buscar:",
-                                    "oPaginate": {
-                                    "sFirst": "Primero",
-                                    "sLast":"Último",
-                                    "sNext":"Siguiente",
-                                    "sPrevious": "Anterior"
-                                    },
-                                    "sProcessing":"Procesando...",
-                                },
-                                "paging":   false
-                        });     
-                    });                    
+                //Respuesta muchos
+                if(respuesta['accion']=='Consultar'  && respuesta['id']==null){                    
+                    $('#tbSalidaDatos').html(respuesta['tablaRegistro']);
                 }
 
                 //Respuesta un registro
-                if(respuesta['accion']=='CONSULTAR'){
-                    $('#hidIdPersona').val(respuesta['id']);           
-                    $('#txtNombre').focus();
+                if(respuesta['accion']=='Consultar'  && respuesta['id']>0){                    
+                    $('#id').val(respuesta['id']);
+                    $('#tipoDocumento').val(respuesta['tipoDocumento']);
+                    $('#documento').val(respuesta['documento']);
+                    $('#primerNombre').val(respuesta['primerNombre']);
+                    $('#segundoNombre').val(respuesta['segundoNombre']);
+                    $('#primerApellido').val(respuesta['primerApellido']);
+                    $('#segundoApellido').val(respuesta['segundoApellido']);                    
+                    $('#celular').val(respuesta['celular']);
+                    $('#correo').val(respuesta['correo']);
+                    $('#direccion').val(respuesta['direccion']);
+                    $('#estado').val(respuesta['estado']);
                 }
 
                 //Respuesta modificar
-                if(respuesta['accion']=='MODIFICAR'){
+                if(respuesta['accion']=='Modificar'){
                     alert(respuesta['respuesta']);
                     Limpiar();
-                    $("#btnBuscar").trigger("click");
+                    $("#btnConsultar").trigger("click");
                 }
                 
                 //Respuesta eliminar
-                if(respuesta['accion']=='ELIMINAR'){
+                if(respuesta['accion']=='Eliminar'){
                     alert(respuesta['respuesta']);
                     Limpiar();
-                    $("#btnBuscar").trigger("click");
+                    $("#btnConsultar").trigger("click");
                 }
             }
     });
